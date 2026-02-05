@@ -2,15 +2,17 @@
 
 ## Quick Installation
 
-Copy the skill file to your Claude Code skills directory:
+Symlink the skill directory (not the .md file!) to your Claude Code skills directory:
 
 ```bash
-# Copy to global skills directory
-cp terminal-session.md ~/.claude/skills/
+# Symlink to global skills directory (recommended)
+ln -s "$(pwd)/terminal-session-skill" ~/.claude/skills/terminal-session
 
-# Or copy to project-specific skills directory
-cp terminal-session.md /path/to/your/project/.claude/skills/
+# Or symlink to project-specific skills directory
+ln -s "$(pwd)/terminal-session-skill" /path/to/your/project/.claude/skills/terminal-session
 ```
+
+**Important**: The skill must be a directory containing `skill.md`, not a standalone `.md` file. Claude Code expects skills to be directories that can contain multiple files.
 
 ## Verify Installation
 
@@ -107,7 +109,8 @@ term-agent kill test
 To remove the skill:
 
 ```bash
-rm ~/.claude/skills/terminal-session.md
+# Remove the symlink
+rm ~/.claude/skills/terminal-session
 ```
 
 To uninstall term-agent:
@@ -119,8 +122,9 @@ pipx uninstall term-agent
 ## Troubleshooting
 
 **Skill not found:**
-- Verify file is in `~/.claude/skills/` or `./.claude/skills/`
-- Check file has `.md` extension
+- Verify symlink exists: `ls -la ~/.claude/skills/terminal-session`
+- Verify it's a directory symlink, not a file
+- Check directory contains `skill.md` file
 - Restart Claude Code session
 
 **term-agent command not found:**
@@ -137,6 +141,20 @@ brew install tmux
 sudo apt install tmux
 ```
 
+## Skill Directory Structure
+
+The proper structure is:
+
+```
+term-agent/
+├── terminal-session-skill/     # Skill directory
+│   └── skill.md               # Skill documentation
+└── ...
+
+~/.claude/skills/
+└── terminal-session -> /path/to/term-agent/terminal-session-skill  # Symlink to directory
+```
+
 ---
 
-That's it! Copy `terminal-session.md` to your skills directory and start using persistent terminal sessions in Claude Code.
+That's it! Symlink the `terminal-session-skill` directory to your Claude skills directory and start using persistent terminal sessions in Claude Code.

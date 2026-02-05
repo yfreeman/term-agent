@@ -169,6 +169,39 @@ echo "✓ term-agent installed successfully"
 }
 ```
 
+## Claude Code Skill
+
+This project includes a Claude Code skill for interactive terminal session management.
+
+### Installing the Skill
+
+Symlink the skill directory to your Claude Code skills directory:
+
+```bash
+# From the term-agent directory
+ln -s "$(pwd)/terminal-session-skill" ~/.claude/skills/terminal-session
+```
+
+### Verify Skill Installation
+
+```bash
+# Check the symlink
+ls -la ~/.claude/skills/terminal-session
+
+# Should show:
+# terminal-session -> /path/to/term-agent/terminal-session-skill
+```
+
+### Using the Skill
+
+Once installed, Claude Code will automatically use the skill for:
+- Long-running commands (builds, tests, deployments)
+- SSH connections to remote servers
+- Background processes (dev servers, watchers)
+- Interactive commands requiring user input
+
+For detailed skill documentation, see [SKILL_INSTALLATION.md](./SKILL_INSTALLATION.md).
+
 ## Development
 
 ```bash
