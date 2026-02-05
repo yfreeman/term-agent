@@ -13,12 +13,27 @@ Stateless terminal agent for Claude Code using tmux as state store.
 
 ### Using pipx (Recommended)
 
+**From GitHub:**
 ```bash
-# From this directory
-pipx install -e .
+# Latest version
+pipx install git+https://github.com/yfreeman/term-agent.git
 
-# Or install from path
-pipx install /Users/jfreeman1271/scripts/term-agent
+# Specific version/tag
+pipx install git+https://github.com/yfreeman/term-agent.git@v0.1.0
+```
+
+**From local source (for development):**
+```bash
+# Editable install
+pipx install -e /path/to/term-agent
+
+# Or from current directory
+pipx install -e .
+```
+
+**Update existing installation:**
+```bash
+pipx install --force git+https://github.com/yfreeman/term-agent.git
 ```
 
 ### Create shell alias (optional)
@@ -27,6 +42,11 @@ Add to your `~/.zshrc` or `~/.bashrc`:
 
 ```bash
 alias ta='term-agent'
+```
+
+Then reload:
+```bash
+source ~/.zshrc  # or ~/.bashrc
 ```
 
 ## Usage
@@ -98,9 +118,64 @@ output = agent.capture_output("my-session")
 print(output["output"])
 ```
 
+## Dev Container / CI Installation
+
+**In a Dockerfile or install script:**
+```dockerfile
+# Install pipx if not present
+RUN python3 -m pip install --user pipx && \
+    python3 -m pipx ensurepath
+
+# Install term-agent from GitHub
+RUN pipx install git+https://github.com/yfreeman/term-agent.git
+
+# Verify installation
+RUN term-agent --help
+```
+
+**In a shell install script:**
+```bash
+#!/bin/bash
+# install-term-agent.sh
+
+set -e
+
+echo "Installing term-agent..."
+
+# Ensure pipx is available
+if ! command -v pipx &> /dev/null; then
+    python3 -m pip install --user pipx
+    python3 -m pipx ensurepath
+fi
+
+# Install term-agent
+pipx install git+https://github.com/yfreeman/term-agent.git
+
+# Verify
+term-agent --help
+
+echo "✓ term-agent installed successfully"
+```
+
+**Example devcontainer.json:**
+```json
+{
+  "name": "My Project",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pipx install git+https://github.com/yfreeman/term-agent.git",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/pipx:2": {}
+  }
+}
+```
+
 ## Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/yfreeman/term-agent.git
+cd term-agent
+
 # Install in development mode
 pipx install -e . --force
 
