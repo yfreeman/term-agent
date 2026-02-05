@@ -10,7 +10,7 @@ authors = [{name = "Your Name"}]
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "libtmux>=0.50.0",
+    "libtmux>=0.50.0,<1.0.0",  # Semantic versioning - allow 0.x updates
 ]
 
 [project.scripts]
