@@ -1,0 +1,6 @@
+libtmux>=0.50.0
+
+[dev]
+pytest
+black
+ruff

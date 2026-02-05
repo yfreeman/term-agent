@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+term_agent/__init__.py
+term_agent/agent.py
+term_agent/cli.py
+term_agent.egg-info/PKG-INFO
+term_agent.egg-info/SOURCES.txt
+term_agent.egg-info/dependency_links.txt
+term_agent.egg-info/entry_points.txt
+term_agent.egg-info/requires.txt
+term_agent.egg-info/top_level.txt

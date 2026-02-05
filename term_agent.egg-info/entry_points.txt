@@ -1,0 +1,2 @@
+[console_scripts]
+term-agent = term_agent.cli:main
