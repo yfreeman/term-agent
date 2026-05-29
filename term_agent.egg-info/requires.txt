@@ -1,4 +1,4 @@
-libtmux>=0.50.0
+libtmux<1.0.0,>=0.50.0
 
 [dev]
 pytest
