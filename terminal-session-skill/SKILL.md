@@ -1,3 +1,8 @@
+---
+name: terminal-session
+description: Manage persistent tmux-backed terminal sessions for long-running commands, SSH sessions, dev servers, and any task the user should be able to attach to and observe in real time.
+---
+
 # Terminal Session Manager Skill
 
 ## Overview
