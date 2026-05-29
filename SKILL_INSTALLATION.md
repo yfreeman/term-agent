@@ -12,7 +12,7 @@ ln -s "$(pwd)/terminal-session-skill" ~/.claude/skills/terminal-session
 ln -s "$(pwd)/terminal-session-skill" /path/to/your/project/.claude/skills/terminal-session
 ```
 
-**Important**: The skill must be a directory containing `skill.md`, not a standalone `.md` file. Claude Code expects skills to be directories that can contain multiple files.
+**Important**: The skill must be a directory containing `SKILL.md`, not a standalone `.md` file. Claude Code expects skills to be directories that can contain multiple files.
 
 ## Verify Installation
 
@@ -124,7 +124,7 @@ pipx uninstall term-agent
 **Skill not found:**
 - Verify symlink exists: `ls -la ~/.claude/skills/terminal-session`
 - Verify it's a directory symlink, not a file
-- Check directory contains `skill.md` file
+- Check directory contains `SKILL.md` file
 - Restart Claude Code session
 
 **term-agent command not found:**
@@ -148,7 +148,7 @@ The proper structure is:
 ```
 term-agent/
 ├── terminal-session-skill/     # Skill directory
-│   └── skill.md               # Skill documentation
+│   └── SKILL.md               # Skill documentation
 └── ...
 
 ~/.claude/skills/
