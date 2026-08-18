@@ -1,0 +1,10 @@
+
+# Term Agent logs
+.term-agent/
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Local virtualenv
+.venv/
